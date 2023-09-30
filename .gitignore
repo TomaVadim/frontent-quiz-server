@@ -1,0 +1,15 @@
+# dependency directories
+node_modules/
+
+# production
+/build
+
+# IDEA files
+.idea
+
+# misc
+.DS_Store
+.env
+.env.dev
+.env.test
+.env.prod
