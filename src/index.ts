@@ -6,12 +6,13 @@ import express from "express";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 
+import { stream } from "src/utils/logger/logger.util";
 import { errorMiddleware } from "src/middlewares/error-middleware/error-middleware";
 import { PORT, ORIGIN, LOG_FORMAT, USE_CREDENTIALS } from "src/configs/env/env.config";
 
 const app = express();
 
-app.use(morgan(`${LOG_FORMAT}`));
+app.use(morgan(`${LOG_FORMAT}`, { stream }));
 app.use(helmet());
 app.use(cors({ origin: ORIGIN, credentials: USE_CREDENTIALS }));
 app.use(compression());
